@@ -82,7 +82,9 @@ def ModelComplexity(X, y):
     train_std = np.std(train_scores, axis=1)
     test_mean = np.mean(test_scores, axis=1)
     test_std = np.std(test_scores, axis=1)
-
+    print(max_depth)
+    print(test_mean)
+    
     # Plot the validation curve
     pl.figure(figsize=(7, 5))
     pl.title('Decision Tree Regressor Complexity Performance')
@@ -116,7 +118,7 @@ def PredictTrials(X, y, fitter, data):
         reg = fitter(X_train, y_train)
         
         # Make a prediction
-        pred = reg.predict([data[0]])[0]
+        pred = reg.predict([data])[0]
         prices.append(pred)
         
         # Result
